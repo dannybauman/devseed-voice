@@ -91,9 +91,6 @@ def make(args):
         cmd += ["--focus", focus]
     created = nlm(cmd, 90)
     art = created.get("artifact_id") if isinstance(created, dict) else None
-    if not art:  # fall back to the newest studio row
-        rows = nlm(["studio", "status", nb_id], 60) or []
-        art = (rows[-1].get("artifact_id") or rows[-1].get("id")) if rows else None
     if art:
         log = open(os.path.join(home(), "devseed-voice-watch.log"), "a")
         w = subprocess.Popen([sys.executable, os.path.abspath(__file__), "watch"],
