@@ -1,0 +1,7 @@
+{
+  "blog": {
+    "id": "<notebook id from the NotebookLM URL>",
+    "title": "Our blog",
+    "about": "projects and blog posts"
+  }
+}

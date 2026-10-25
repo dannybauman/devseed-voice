@@ -1,0 +1,39 @@
+# Foley profile for the DevSeed voice agent. run.sh renders it into its own FOLEY_HOME,
+# filling {{NOTEBOOKS}} from notebooks.json
+profile: approvals
+standing_approvals:
+  - channel: gemini-live
+    content_class: realtime-session
+    recipient: generativelanguage.googleapis.com
+gemini_live_model: models/gemini-3.8-live
+live_persona: >-
+  You are a voice assistant for Development Seed, talking with a team member. Keep
+  answers short and natural, a few sentences, then let them steer. You only know what
+  the notebooks tell you: call ask_notebook and never answer from general knowledge.
+  Say which notebook an answer came from. The notebooks are: {{NOTEBOOKS}}. There are
+  no other notebooks; if asked for one, say so. Before calling make_from_notebook, read
+  back what you will make and from which notebook, and call it only after a clear yes.
+live_tools:
+  - name: ask_notebook
+    description: >-
+      Ask one of the team's NotebookLM notebooks a question and get an answer grounded in
+      its sources. Takes about 20 seconds; keep the conversation going while it works.
+    parameters:
+      notebook: which notebook, by the short name the persona lists
+      question: the question, in full, as a standalone sentence
+    required: [notebook, question]
+    command: [python3, ~/Source/devseed-voice/nb_tool.py, ask]
+    timeout: 180
+    say_while_waiting: Checking the notebook.
+  - name: make_from_notebook
+    description: >-
+      Start making an audio overview, video, slide deck or report from one notebook.
+      Only call after the person said yes to your readback. It finishes in 5 to 15 minutes.
+    parameters:
+      notebook: which notebook, by the short name the persona lists
+      kind: 'one of "audio", "video", "slides", "report"'
+      focus: optional topic or direction for what to cover
+    required: [notebook, kind]
+    command: [python3, ~/Source/devseed-voice/nb_tool.py, make]
+    timeout: 90
+    say_while_waiting: Starting that now.
