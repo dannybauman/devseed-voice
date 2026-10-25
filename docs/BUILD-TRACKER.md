@@ -12,8 +12,8 @@ Charted 2026-10-24. The course is `.astrolabe/courses/devseed-voice/`; this file
 
 ## Phase 1. Hand back what it makes
 
-- [ ] **1.1 Know when it is done.** After a make, poll the notebook's Studio until the artifact is ready (the download succeeding is the proof for video), with a stale cutoff.
-- [ ] **1.2 Hand it over.** Tell the caller it is ready, on the call if it is still open, and put a link on the screen.
+- [x] **1.1 Know when it is done.** After a make, poll the notebook's Studio until the artifact is ready (the download succeeding is the proof for video), with a stale cutoff.
+- [x] **1.2 Hand it over.** Tell the caller it is ready, on the call if it is still open, and put a link on the screen.
 - [ ] **1.3 Heard on a call.** Make an audio overview, hear "it's ready", open it from the phone.
 
 ## Phase 2. Pictures on the screen
@@ -50,3 +50,4 @@ Charted 2026-10-24. The course is `.astrolabe/courses/devseed-voice/`; this file
 ## Progress log
 
 - 2026-10-24: first version proven by voice on a phone. Both notebooks answered with their source named, an out-of-list notebook and a general-knowledge question were refused, and make waited for a yes.
+- 2026-10-24: 1.1 and 1.2 built and merged (devseed-voice #1, Foley #166): make spawns a watcher that polls NotebookLM until the download proves the artifact ready, then leaves a notice the call page shows and says, on the call or next time it opens. The route was exercised with a test line; 1.3 waits for a real call.
