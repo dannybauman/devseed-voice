@@ -1,0 +1,25 @@
+{
+  "schema": "astrolabe-space/1",
+  "space_id": "sp_uaa3vh5u19l1xip5",
+  "name": "devseed-voice",
+  "repository": "dannybauman/devseed-voice",
+  "ref": "main",
+  "world_recipe": "repo-world/1",
+  "trackers": [
+    {
+      "id": "devseed-voice",
+      "path": "docs/BUILD-TRACKER.md",
+      "title": "devseed-voice"
+    }
+  ],
+  "courses": [
+    {
+      "id": "devseed-voice",
+      "path": ".astrolabe/courses/devseed-voice"
+    }
+  ],
+  "entry": {
+    "course": "devseed-voice",
+    "frame": "course"
+  }
+}
