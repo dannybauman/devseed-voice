@@ -4,6 +4,8 @@ Talk to your team's NotebookLM notebooks out loud. Ask a question and hear an an
 
 Gemini Live does the listening and talking. [`nlm`](https://github.com/jacob-bd/gemini-notebook-mcp-cli) reaches NotebookLM. It runs on Foley, a voice runtime that is not public yet.
 
+After a make, a small background watcher checks NotebookLM every 30 seconds. When the result is ready it leaves a notice with a link to the notebook: on the call screen if you are still talking, or the next time the page opens. If it never finishes, you get a notice saying so.
+
 ## Setup
 
 1. Sign `nlm` in to your work Google account: `nlm login --profile devseed`
